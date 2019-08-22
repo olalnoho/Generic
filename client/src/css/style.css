@@ -598,7 +598,7 @@
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   z-index: 1;
-  width: 70%;
+  width: 60%;
   height: 70%;
   background-color: rgba(44, 52, 57, 0.97);
   overflow: auto;
@@ -642,6 +642,11 @@
 
 .modal .profile__comment--user img {
   margin: 0;
+}
+
+.modal ~ * {
+  -webkit-filter: blur(9px);
+          filter: blur(9px);
 }
 
 @media only screen and (max-width: 800px) {

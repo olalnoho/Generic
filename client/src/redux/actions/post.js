@@ -36,8 +36,7 @@ export const postPosts = (text) =>
 export const removePost = (id) =>
    async dispatch => {
       try {
-         const res = await axios.delete(`/api/post/${id}`)
-         console.log(res)
+         await axios.delete(`/api/post/${id}`)
          dispatch(getPosts())
       } catch (err) {
          dispatch({ type: POST_POST_FAIL, payload: err })

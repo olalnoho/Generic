@@ -1,10 +1,10 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { deletePost, likePost, unlikePost, getPost } from '../../redux/actions/profile'
 // Try using the post in redux state to get instant update on comment count.
 const PostItem = ({ auth, profile: { profile }, deletePost, likePost, unlikePost, getPost, post, openModal }) => {
-   const [showAll, setShowAll] = useState(false) 
+   const [showAll, setShowAll] = useState(false)
    return (
       <div key={post._id} className="profile__post">
          <div className="post__item--user">
@@ -12,15 +12,18 @@ const PostItem = ({ auth, profile: { profile }, deletePost, likePost, unlikePost
             <Link to={`/profile/${post.user}`} ><h3> {post.name} </h3></Link>
          </div>
          <p className="lead">
-         {post.text.length > 100 && !showAll ?
-                  <>
-                     <p className="lead">{post.text.slice(0, 100) + '...'}</p> <br /> <p className="post__more" onClick={() => setShowAll(!showAll)}>See more</p>
-                  </> :
-                  <>
-                     <p className="lead">{post.text}</p>
-                     {post.text.length > 50 && <p className="post__more" onClick={e => setShowAll(!showAll)}>See less</p>}
-                  </>
-               }
+            {post.text.length > 100 && !showAll ?
+               <>
+                  <span className="lead">{post.text.slice(0, 100) + '...'}</span>
+                  <br />
+                  <span className="post__more" onClick={() => setShowAll(!showAll)}>See more
+                     </span>
+               </> :
+               <>
+                  <span className="lead">{post.text}</span>
+                  {post.text.length > 50 && <span className="post__more" onClick={e => setShowAll(!showAll)}>See less</span>}
+               </>
+            }
          </p>
          <div className="post__icons">
             <div className="like">
