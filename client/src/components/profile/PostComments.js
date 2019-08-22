@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import Spinner from '../layout/Spinner/Spinner'
 import { postComment, removeComment } from '../../redux/actions/profile'
 
 const PostComments = ({ profile: { profile, post, loading }, postComment, removeComment, user }) => {
    const [comment, setComment] = useState('')
-   return !loading && profile !== null && (
-      <>
+   return loading || profile == null ? <Spinner /> : <>
          <div key={post._id} className="post__item">
          <div className="profile__comment--user">
             <img className="rounded-img" src={post.avatar} alt="avatar" />
@@ -42,7 +42,6 @@ const PostComments = ({ profile: { profile, post, loading }, postComment, remove
             )}
          </div>}
       </>
-   )
 }
 
 const mapStateToProps = state => ({

@@ -34,10 +34,10 @@ const Profile = ({
                   {commentsOpen && <Modal show={commentsOpen}>
                      <PostComments post={post} />
                   </Modal>}
-                  {loading ? <Spinner /> : <>
+                  <>
                      <ProfileLeft user={auth.user._id} profile={profile} />
                      <ProfileRight openModal={openModal} auth={auth} profile={profile} posts={profile.posts} />
-                  </>}
+                  </>
                </div>
             </div> : <ProfileCreation />
          }
