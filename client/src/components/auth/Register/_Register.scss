@@ -8,3 +8,21 @@
     text-decoration: underline;
   }
 }
+
+@media only screen and (max-width: 1000px) {
+  .register {
+    width: 70%;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .register {
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 5000px) {
+  .register {
+    width: 100%;
+  }
+}

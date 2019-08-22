@@ -29,10 +29,13 @@
 }
 
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 650px) {
   .navbar {
     flex-direction: column;
     &__links{
+      margin: 0;
+    }
+    h2 {
       margin: 0;
     }
   }

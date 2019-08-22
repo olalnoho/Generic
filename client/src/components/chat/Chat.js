@@ -78,7 +78,7 @@ const Chat = ({ user }) => {
          {activeUser && <Private socket={socket} user={activeUser} />}
          <div className="chat">
             <h4 className="chat__online">
-               Currently {users.length} {users.length > 1 ? 'users' : 'user'}
+               Currently {users.length} {users.length > 1 ? 'users ' : 'user '}
                online -- Click on a users name to whisper to them
             </h4>
             <div className="chat__window">

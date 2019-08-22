@@ -25,8 +25,8 @@ const Navbar = ({ auth: { isAuth, loading }, logout }) => {
          <Link to="/" ><h2 className="navbar__heading">
             <i className="fas fa-crop"></i> Hello
          </h2></Link>
-         <Searchbar />
-         {!loading && isAuth ? authLinks : guestLinks}
+         {!loading && isAuth && <Searchbar />}
+           {!loading && isAuth ? authLinks : guestLinks}
       </nav>
    )
 }

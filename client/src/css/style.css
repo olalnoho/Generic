@@ -38,7 +38,7 @@
   margin-left: 2rem;
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 650px) {
   .navbar {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -46,6 +46,9 @@
             flex-direction: column;
   }
   .navbar__links {
+    margin: 0;
+  }
+  .navbar h2 {
     margin: 0;
   }
 }
@@ -91,6 +94,24 @@
   text-decoration: underline;
 }
 
+@media only screen and (max-width: 1000px) {
+  .register {
+    width: 70%;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .register {
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 5000px) {
+  .register {
+    width: 100%;
+  }
+}
+
 .profile {
   font-size: 2rem;
   -webkit-box-flex: 1;
@@ -112,6 +133,10 @@
 .profile__editbutton {
   margin: 2rem auto;
   width: 40%;
+}
+
+.profile__bio {
+  padding: 1rem;
 }
 
 .profile__left {
@@ -590,7 +615,28 @@
 }
 
 .searchbar input {
-  padding: 0.4rem;
+  background-color: #2c3439;
+  color: white;
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+  border: 1px solid white;
+  outline: none;
+}
+
+.searchbar input::-webkit-input-placeholder {
+  color: white;
+}
+
+.searchbar input:-ms-input-placeholder {
+  color: white;
+}
+
+.searchbar input::-ms-input-placeholder {
+  color: white;
+}
+
+.searchbar input::placeholder {
+  color: white;
 }
 
 input:placeholder-shown ~ .searchbar__dropdown {
@@ -754,6 +800,7 @@ input:placeholder-shown ~ .searchbar__dropdown {
 @media only screen and (max-width: 700px) {
   .chat {
     width: 90vw;
+    margin-bottom: 3rem;
   }
 }
 
@@ -790,6 +837,12 @@ input:placeholder-shown ~ .searchbar__dropdown {
 .lead {
   font-size: 2.4rem;
   margin-bottom: 1.6rem;
+}
+
+@media only screen and (max-width: 1000px) {
+  .large {
+    font-size: 4rem;
+  }
 }
 
 .btn {
@@ -915,5 +968,14 @@ i {
   }
   .container {
     margin-top: 14rem;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  html {
+    font-size: 50%;
+  }
+  .container {
+    margin-top: 20rem;
   }
 }
