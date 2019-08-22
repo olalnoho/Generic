@@ -106,7 +106,7 @@
   }
 }
 
-@media only screen and (max-width: 5000px) {
+@media only screen and (max-width: 500px) {
   .register {
     width: 100%;
   }
@@ -635,7 +635,7 @@
   margin: 0;
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 800px) {
   .modal {
     width: 80%;
     height: 80%;
