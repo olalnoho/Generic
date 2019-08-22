@@ -1,0 +1,53 @@
+.btn {
+  color: white;
+  display: inline-block;
+  background: var(--light-color);
+  padding: 0.6rem 2rem;
+  font-size: 1.6rem;
+  border: none;
+  cursor: pointer;
+  margin-right: 0.5rem;
+  transition: opacity 0.2s ease-in;
+  outline: none;
+
+  &-primary {
+    background-color: #1c1d2c;
+  }
+
+  &-green {
+    background-color: #192c23;
+  }
+
+  &-grey {
+    background-color: #475259;
+  }
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.form {
+  &__item {
+    margin: 1rem 0;
+  }
+
+  input[type="text"],
+  input[type="password"],
+  textarea {
+    width: 100%;
+    padding: 1rem;
+  }
+}
+
+.rounded-img {
+  border-radius: 50%;
+}
+
+.center {
+  margin: auto;
+}
+
+.mt-1 {
+  margin-top: 1rem;
+}

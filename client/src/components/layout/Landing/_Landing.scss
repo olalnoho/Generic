@@ -1,0 +1,21 @@
+.landing {
+  flex: 1;
+  background-color: #2f3e37;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__buttons {
+    a {
+      font-size: 2rem;
+    }
+  }
+}
+
+
+@media only screen and (max-width: 700px) {
+  .landing {
+    text-align: center;
+  }
+}

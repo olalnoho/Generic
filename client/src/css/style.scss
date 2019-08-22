@@ -1,0 +1,74 @@
+@import "../components/layout/Navbar/Navbar";
+@import "../components/layout/Landing/Landing";
+@import "../components/auth/Register/Register";
+@import "../components/profile/Profile";
+@import "../components/layout/Spinner/Spinner";
+@import "../components/posts/Posts";
+@import "../components/layout/Modal/Modal";
+@import "../components/chat/Chat";
+@import "./typography";
+@import "./components";
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "PT Sans", sans-serif;
+  font-size: 62.5%;
+  color: white;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  text-decoration: none;
+  font-size: inherit;
+  color: inherit;
+  font-family: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  margin-top: 10rem;
+  flex: 1;
+  background-color: #2f3e37;
+  display: flex;
+  min-height: 100%;
+  overflow: hidden;
+}
+
+img {
+  width: 100%;
+}
+
+.mr {
+  margin-right: 1rem;
+}
+
+#root {
+  background-color: #2f3e37;
+}
+
+i {
+  font-size: 2rem;
+}
+
+@media only screen and (max-width: 1200px) {
+  html {
+    font-size: 50%;
+  }
+
+  .container {
+    margin-top: 14rem;
+  }
+}
