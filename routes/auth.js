@@ -6,7 +6,7 @@ const Controller = require('../controllers/Auth')
 // Login
 router.post('/', Controller.login)
 
-// Get logges in user
+// Get logged in user
 router.get('/', auth, Controller.fetchUser)
 
 

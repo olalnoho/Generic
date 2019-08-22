@@ -52,4 +52,13 @@ router.post('/', [
    }
 })
 
+router.get('/', async (req, res) => {
+   try {
+      const users = await User.find({}).select('name')
+      res.json(users)
+   } catch (err) {
+      res.status(500).json(err.message)
+   }
+})
+
 module.exports = router

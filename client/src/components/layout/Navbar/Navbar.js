@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { logout } from '../../../redux/actions/auth'
+import Searchbar from '../../searchbar/Searchbar';
 
 const Navbar = ({ auth: { isAuth, loading }, logout }) => {
    const authLinks = (
@@ -24,6 +25,7 @@ const Navbar = ({ auth: { isAuth, loading }, logout }) => {
          <Link to="/" ><h2 className="navbar__heading">
             <i className="fas fa-crop"></i> Hello
          </h2></Link>
+         <Searchbar />
          {!loading && isAuth ? authLinks : guestLinks}
       </nav>
    )
