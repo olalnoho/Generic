@@ -16,6 +16,10 @@
     opacity: 0;
   }
 
+  input:not(:focus) ~ &__dropdown {
+    opacity: 0;
+  }
+
   &__dropdown {
     transition: all 0.4s;
     opacity: 1;
@@ -26,6 +30,11 @@
     color: black;
     li {
       padding: 1rem;
+    }
+
+    li:hover {
+      background-color: rgba(#2c3439, 0.9);
+      color: white;
     }
   }
 }

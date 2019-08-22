@@ -194,6 +194,11 @@
       flex-basis: 50%;
 }
 
+.profile__hobbies i {
+  font-size: 1rem;
+  padding: 0 1rem;
+}
+
 .profile__form {
   width: 70%;
   padding: 1rem;
@@ -585,6 +590,16 @@
   width: 90%;
 }
 
+.modal .profile__comment, .modal .post__comment {
+  border-radius: 1rem;
+  background-color: #2f3e37;
+  color: white;
+}
+
+.modal .profile__comment img, .modal .post__comment img {
+  width: 10rem;
+}
+
 @media only screen and (max-width: 700px) {
   .modal {
     width: 80%;
@@ -643,6 +658,10 @@ input:placeholder-shown ~ .searchbar__dropdown {
   opacity: 0;
 }
 
+input:not(:focus) ~ .searchbar__dropdown {
+  opacity: 0;
+}
+
 .searchbar__dropdown {
   -webkit-transition: all 0.4s;
   transition: all 0.4s;
@@ -656,6 +675,11 @@ input:placeholder-shown ~ .searchbar__dropdown {
 
 .searchbar__dropdown li {
   padding: 1rem;
+}
+
+.searchbar__dropdown li:hover {
+  background-color: rgba(44, 52, 57, 0.9);
+  color: white;
 }
 
 .chat {

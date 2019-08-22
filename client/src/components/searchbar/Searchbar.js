@@ -9,8 +9,11 @@ const Searchbar = ({ user, getUsers }) => {
       getUsers()
    }, [getUsers])
    if (search && user && !user.loading) {
-      results = user.users.filter(usr => usr.name.toLowerCase().includes(search.toLowerCase()))
-      console.log(results)
+      results = user.users.filter(usr =>
+         usr.name
+            .toLowerCase()
+            .includes(search.toLowerCase())
+      )
    }
    return (
       <div className="searchbar">
