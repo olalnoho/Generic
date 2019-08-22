@@ -85,7 +85,7 @@ const Chat = ({ user }) => {
                <div className="chat__window--users">
                   <ul className="chat--list">
                      {users && users.map((usr, i) =>
-                        <li key={i} onClick={e => nameClick(e, usr)}>
+                        <li className="chatuser" key={i} onClick={e => nameClick(e, usr)}>
                            {usr.name}
                         </li>
                      )}
