@@ -31,25 +31,19 @@ router.post('/', [
 router.get('/', auth, Controller.read)
 
 
-// Get single post
 router.get('/:id', auth, Controller.findById)
 
-// Delete a post
 router.delete('/:id', auth, Controller.delete)
 
-// Like a post
 router.put('/like/:id', auth, Controller.like)
 
-// Unlike a post
 router.put('/unlike/:id', auth, Controller.unlike)
 
-// Comment on a post
 router.post('/comment/:id', [
    check('text', 'Text is required').not().isEmpty(),
    auth
 ], Controller.comment)
 
-// Delete comment on post
 router.delete('/comment/:id/:post_id', auth, Controller.deleteComment)
 
 

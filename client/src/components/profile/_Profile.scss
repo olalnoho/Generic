@@ -58,7 +58,7 @@
   }
 
   &__form {
-    width: 70%;
+    width: 62%;
     padding: 1rem;
     display: flex;
     margin: auto;
@@ -71,7 +71,7 @@
   &__posts {
     flex: 1;
     overflow: auto;
-    width: 70%;
+    width: 60%;
     margin: auto;
     margin-top: 5rem;
   }
@@ -165,7 +165,6 @@
   }
 }
 
-
 @media only screen and (max-width: 900px) {
   .profile {
     flex-direction: column;
@@ -180,7 +179,7 @@
         flex-direction: column;
       }
       .profile__posts {
-        width: 90%;
+        width: 70%;
       }
     }
   }
@@ -188,7 +187,6 @@
 
 @media only screen and (max-width: 600px) {
   .profile {
-
     &__right {
       .profile__form {
         width: 100%;
@@ -200,7 +198,6 @@
     }
   }
 }
-
 
 @media only screen and (max-width: 600px) {
   .profile__creation {

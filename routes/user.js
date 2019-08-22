@@ -1,8 +1,7 @@
 const express = require('express')
-const { check, validationResult } = require('express-validator')
-const gravatar = require('gravatar')
-const User = require('../db/User')
+const { check } = require('express-validator')
 const router = express.Router()
+const Controller = require('../controllers/User')
 
 /*
    --- User Schema ---
@@ -16,49 +15,11 @@ const router = express.Router()
 
 // Register a user
 router.post('/', [
-
    check('name', 'Name is required').not().isEmpty(),
    check('password', 'Passowrd is required').isLength({ min: 6 }),
    check('email', 'Email must be valid').isEmail(),
+], Controller.registerUser)
 
-], async (req, res) => {
-
-   const errors = validationResult(req)
-   if (!errors.isEmpty()) {
-      return res.status(400).json({ errors })
-   }
-
-   const { email, name, password } = req.body
-
-   try {
-
-      let user = await User.findOne({ email })
-      if (user) return res.status(400).json({ errors: [{ msg: 'User already exists' }] })
-
-      const avatar = gravatar.url(email, {
-         s: '200',
-         r: 'pg',
-         default: 'mm',
-      })
-
-      user = new User({ name, email, password, avatar })
-      // Mongoose pre-hook hashes password, no need to do it here.
-      await user.save()
-      const token = await user.getAuthToken()
-      res.json(token)
-
-   } catch (error) {
-      res.status(500).json(err.message)
-   }
-})
-
-router.get('/', async (req, res) => {
-   try {
-      const users = await User.find({}).select('name')
-      res.json(users)
-   } catch (err) {
-      res.status(500).json(err.message)
-   }
-})
+router.get('/', Controller.getUsers)
 
 module.exports = router
