@@ -20,16 +20,18 @@ const PostItem = ({
    return (
       <>
          <div className="post__item">
-            <img className="rounded-img" src={avatar} alt="" />
-            <Link to={`/profile/${user._id}`}> <h2 className="small">{name}</h2></Link>
+            <div className="post__item--user">
+               <img className="rounded-img" src={avatar} alt="" />
+               <Link to={`/profile/${user._id}`}> <h2 className="small">{name}</h2></Link>
+            </div>
             <div className="post__text">
                {text.length > 100 && !showAll ?
                   <>
-                     <p className="lead">{text.slice(0, 100) + '...'}</p> <br /> <p onClick={() => setShowAll(!showAll)}>See more</p>
+                     <p className="lead">{text.slice(0, 100) + '...'}</p> <br /> <p className="post__more" onClick={() => setShowAll(!showAll)}>See more</p>
                   </> :
                   <>
                      <p className="lead">{text}</p>
-                     {text.length > 50 && <p onClick={e => setShowAll(!showAll)}>See less</p>}
+                     {text.length > 50 && <p className="post__more" onClick={e => setShowAll(!showAll)}>See less</p>}
                   </>
                }
             </div>

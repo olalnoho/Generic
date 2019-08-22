@@ -10,8 +10,10 @@ const PostComment = ({ post: { post, loading }, auth: { user }, commentPost, rem
    return post && !loading &&
       <div>
          <div className="post__item">
-            <img className="rounded-img" src={post.avatar} alt="" />
-            <h2 className="small">{post.name}</h2>
+            <div className="profile__comment--user">
+               <img className="rounded-img" src={post.avatar} alt="" />
+               <h3 className="small">{post.name}</h3>
+            </div>
             <p className="lead"> {post.text} </p>
          </div>
 
@@ -33,8 +35,10 @@ const PostComment = ({ post: { post, loading }, auth: { user }, commentPost, rem
          {post.comments && <div className="post__comments">
             {post.comments.map(comment =>
                <div key={comment._id} className="profile__comment">
-                  <img src={comment.avatar} alt="avatar" />
-                  <Link to={`/profile/${comment.user}`} ><h3> {comment.name} </h3></Link>
+                  <div className="profile__comment--user">
+                     <img className="rounded-img" src={comment.avatar} alt="avatar" />
+                     <Link to={`/profile/${comment.user}`} ><h3> {comment.name} </h3></Link>
+                  </div>
                   <p className="lead">{comment.text}</p>
                   {
                      user._id === comment.user &&

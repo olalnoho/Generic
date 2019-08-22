@@ -45,7 +45,7 @@ const ProfileEdit = ({ createProfile, getProfile, profile: { profile, loading },
    return (
       <div className="container">
          <div className="profile__creation">
-            <h2 className="medium">Looks like you don't have a profile yet. Create one here.</h2>
+            <h2 className="medium">Edit your profile</h2>
             <form className="form" onSubmit={e => onSubmit(e)}>
                <div className="form__item">
                   <input onChange={e => onChange(e)} value={formData.location} type="text" name="location" placeholder="Current location" />

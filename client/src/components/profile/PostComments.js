@@ -8,8 +8,10 @@ const PostComments = ({ profile: { profile, post, loading }, postComment, remove
    return !loading && profile !== null && (
       <>
          <div key={post._id} className="post__item">
-            <img src={post.avatar} alt="avatar" />
-            <h2 className="small"> {post.name} </h2>
+         <div className="profile__comment--user">
+            <img className="rounded-img" src={post.avatar} alt="avatar" />
+            <h3 className="small"> {post.name} </h3>
+            </div>
             <p className="lead">{post.text}</p>
          </div>
          <form className="profile__form" onSubmit={e => {
@@ -27,8 +29,10 @@ const PostComments = ({ profile: { profile, post, loading }, postComment, remove
          {post.comments && <div className="profile__comments">
             {post.comments.map(comment =>
                <div key={comment._id} className="profile__comment">
-                  <img src={comment.avatar} alt="avatar" />
-                  <Link to={`/profile/${comment.user}`} ><h3> {comment.name} </h3></Link>
+                  <div className="profile__comment--user">
+                     <img className="rounded-img" src={comment.avatar} alt="avatar" />
+                     <Link to={`/profile/${comment.user}`} ><h3> {comment.name} </h3></Link>
+                  </div>
                   <p className="lead">{comment.text}</p>
                   {
                      user._id === comment.user &&

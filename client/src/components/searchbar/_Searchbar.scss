@@ -13,10 +13,12 @@
   }
 
   input:placeholder-shown ~ &__dropdown {
+    visibility: hidden;
     opacity: 0;
   }
 
   input:not(:focus) ~ &__dropdown {
+    visibility: hidden;
     opacity: 0;
   }
 
