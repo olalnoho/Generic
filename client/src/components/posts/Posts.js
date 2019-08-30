@@ -3,11 +3,12 @@ import { connect } from 'react-redux'
 import { getPosts } from '../../redux/actions/post'
 import PostItem from './PostItem';
 import PostForm from './PostForm'
-//import Spinner from '../layout/Spinner/Spinner'
+import EditPost from './EditPost'
 import Modal from '../layout/Modal/Modal'
 import PostComment from './PostComment'
 const Posts = ({ post: { posts, post, loading }, auth: { user }, getPosts }) => {
    const [show, setShow] = useState(false)
+   const [isEdit, setIsEdit] = useState(false)
    useEffect(() => {
       getPosts()
    }, [getPosts, post])
@@ -15,16 +16,20 @@ const Posts = ({ post: { posts, post, loading }, auth: { user }, getPosts }) => 
    return (
       <div className="container" onClick={e => {
          setShow(false)
+         setIsEdit(false)
       }}>
          <Modal show={show}>
             <PostComment />
+         </Modal>
+         <Modal show={isEdit}>
+            <EditPost post={post} loading={loading} closeModal={() => setIsEdit(false)}/>
          </Modal>
          <div className="post">
             <h1 className="medium">Here you can make posts everyone can see</h1>
             <PostForm />
             {posts && posts.map(pst =>
                user &&
-               <PostItem user={user} showModal={setShow} key={pst._id} post={pst} />)}
+               <PostItem user={user} showModal={setShow} key={pst._id} post={pst} setEdit={setIsEdit} />)}
          </div>
       </div>
    )

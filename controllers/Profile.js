@@ -107,6 +107,26 @@ module.exports = {
       }
    },
 
+   updatePost: async (req, res) => {
+      const errors = validationResult(req)
+      if (!errors.isEmpty()) {
+         return res.status(400).json({ errors })
+      }
+      try {
+         const profile = await Profile.findById(req.params.profile_id)
+         const post = profile.posts.find(post => post._id.toString() === req.params.post_id)
+         if (post.user.toString() == req.user.id) {
+            post.text = req.body.text
+            await profile.save()
+         }
+
+         res.json(post)
+      } catch (err) {
+         console.log(err.message)
+         res.status(500).send('Server error')
+      }
+   },
+
    likePost: async (req, res) => {
       try {
          const profile = await Profile.findById(req.params.profile_id)

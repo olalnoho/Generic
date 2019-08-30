@@ -32,6 +32,11 @@ router.get('/', auth, Controller.read)
 
 
 router.get('/:id', auth, Controller.findById)
+router.patch('/:id', [
+   check('text', 'Text is required').not().isEmpty(),
+   auth
+], Controller.update)
+
 
 router.delete('/:id', auth, Controller.delete)
 

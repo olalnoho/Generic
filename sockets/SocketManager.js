@@ -5,6 +5,7 @@ const ids = {}
    --- DEBUG NOTES ---
       Get rooms: console.log(Object.keys(io.sockets.adapter.sids[socket.id]))
 */
+
 module.exports = (io) => function (socket) {
    socket.on('join', ({ name, email }) => {
       ids[email] = socket.id

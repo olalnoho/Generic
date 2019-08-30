@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { postProfile } from '../../redux/actions/profile'
 import PostItem from './PostItem'
 import Spinner from '../layout/Spinner/Spinner'
-const ProfileRight = ({ postProfile, profile, posts, auth, openModal }) => {
+const ProfileRight = ({ postProfile, profile, posts, auth, openModal, openEdit }) => {
 
    const [text, setText] = useState('')
    const onSubmit = e => {
@@ -13,7 +13,7 @@ const ProfileRight = ({ postProfile, profile, posts, auth, openModal }) => {
    }
    return (
       <>
-         { auth.loading ? <Spinner /> :
+         {auth.loading ? <Spinner /> :
             <div className="profile__right">
                <h3 className="large"> What's on your mind... </h3>
                <form className="profile__form" onSubmit={e => onSubmit(e)}>
@@ -24,6 +24,7 @@ const ProfileRight = ({ postProfile, profile, posts, auth, openModal }) => {
                   <div className="profile__posts">
                      {posts.map((post, i) =>
                         <PostItem
+                           openEdit={openEdit}
                            openModal={openModal}
                            profile={profile}
                            auth={auth}

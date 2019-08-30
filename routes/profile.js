@@ -15,6 +15,11 @@ router.post('/:id/comment', [
    auth
 ], Controller.postOnProfile)
 
+router.patch('/:profile_id/:post_id', [
+   check('text', 'Text is required').not().isEmpty(),
+   auth
+], Controller.updatePost)
+
 router.delete('/:profile_id/:post_id', auth, Controller.removePost)
 
 router.put('/like/:profile_id/:post_id', auth, Controller.likePost)

@@ -7,6 +7,7 @@ import ProfileLeft from './ProfileLeft'
 import Modal from '../layout/Modal/Modal'
 import PostComments from './PostComments'
 import Spinner from '../layout/Spinner/Spinner'
+import EditPost from './EditPost'
 
 const Profile = ({
    profile: { profile, loading, post },
@@ -15,6 +16,7 @@ const Profile = ({
    match
 }) => {
    const [commentsOpen, setCommentsOpen] = useState(false)
+   const [isEdit, setIsEdit] = useState(false)
    useEffect(() => {
       getProfile()
    }, [getProfile, post])
@@ -27,13 +29,22 @@ const Profile = ({
             <div className="container">
                <div className="profile" onClick={(e) => {
                   setCommentsOpen(false)
+                  setIsEdit(false)
                }}>
                   {commentsOpen && <Modal show={commentsOpen}>
                      <PostComments post={post} />
                   </Modal>}
+                  {isEdit && <Modal show={isEdit}>
+                     <EditPost post={post} profile={profile} closeModal={e => setIsEdit(false)}/>
+                  </Modal>}
                   <>
                      <ProfileLeft user={auth.user._id} profile={profile} />
-                     <ProfileRight openModal={openModal} auth={auth} profile={profile} posts={profile.posts} />
+                     <ProfileRight
+                        openEdit={setIsEdit}
+                        openModal={openModal}
+                        auth={auth}
+                        profile={profile}
+                        posts={profile.posts} />
                   </>
                </div>
             </div> : <ProfileCreation />

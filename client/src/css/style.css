@@ -557,6 +557,10 @@
   margin-left: auto;
 }
 
+.post__actions--user {
+  margin-left: auto;
+}
+
 .post i {
   cursor: pointer;
   font-size: 2rem;
@@ -645,8 +649,8 @@
 }
 
 .modal ~ * {
-  -webkit-filter: blur(9px);
-          filter: blur(9px);
+  -webkit-filter: blur(5px);
+          filter: blur(5px);
 }
 
 @media only screen and (max-width: 800px) {

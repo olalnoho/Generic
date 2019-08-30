@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-
 import { getPost, likePost, unlikePost, removePost } from '../../redux/actions/post'
 
 // Fix UserID, looks bad.
@@ -13,7 +12,8 @@ const PostItem = ({
    getPost,
    likePost,
    unlikePost,
-   removePost
+   removePost,
+   setEdit
 }) => {
 
    const [showAll, setShowAll] = useState(false)
@@ -49,7 +49,14 @@ const PostItem = ({
                </div>
                {
                   _id === user._id &&
-                  <i onClick={e => removePost(id)} className="fas fa-times"></i>
+                  <div className="post__actions--user">
+                     <i onClick={e => {
+                        getPost(id)
+                        setEdit(true)
+                        e.stopPropagation()
+                     }} className="fas fa-pencil-ruler"></i>
+                     <i onClick={e => removePost(id)} className="fas fa-times"></i>
+                  </div>
                }
             </div>
          </div>

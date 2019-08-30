@@ -60,6 +60,17 @@ export const deletePost = (profileId, postId) =>
       }
    }
 
+export const updatePost = (profileId, postId, text) =>
+   async dispatch => {
+      dispatch({ type: SET_LOADING })
+      try {
+         await axios.patch(`/api/profile/${profileId}/${postId}`, { text }, defaultheaders)
+         dispatch(getProfile())
+      } catch (err) {
+         dispatch({ type: LOAD_PROFILE_FAIL })
+      }
+   }
+
 export const likePost = (profileId, postId) =>
    async dispatch => {
       try {

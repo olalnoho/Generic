@@ -23,6 +23,16 @@ export const getPosts = () =>
       }
    }
 
+export const updatePost = (id, text) =>
+   async dispatch => {
+      try {
+         await axios.patch(`/api/post/${id}`, { text }, defaultheaders)
+         dispatch(getPosts())
+      } catch (err) {
+         dispatch({ type: POST_POST_FAIL, payload: err.message })
+      }
+   }
+
 export const postPosts = (text) =>
    async dispatch => {
       try {

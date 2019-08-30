@@ -3,7 +3,17 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { deletePost, likePost, unlikePost, getPost } from '../../redux/actions/profile'
 // Try using the post in redux state to get instant update on comment count.
-const PostItem = ({ auth, profile: { profile }, deletePost, likePost, unlikePost, getPost, post, openModal }) => {
+const PostItem = ({
+   auth,
+   profile: { profile },
+   deletePost,
+   likePost,
+   unlikePost,
+   getPost,
+   post,
+   openModal,
+   openEdit
+}) => {
    const [showAll, setShowAll] = useState(false)
    return (
       <div key={post._id} className="profile__post">
@@ -33,12 +43,19 @@ const PostItem = ({ auth, profile: { profile }, deletePost, likePost, unlikePost
             <i onClick={e => {
                getPost(profile._id, post._id)
                openModal(post._id)
-               // Maybe do this another way?
-               // Stoping Propagation so often might be bad?
                e.stopPropagation()
-            }} className="fas fa-comment">{' ' + post.comments.length}</i>
-            {auth.user._id === profile.user._id ?
-               <i onClick={e => deletePost(profile._id, post._id)} className="fas fa-times"></i> : <i></i>}
+            }}
+               className="fas fa-comment"> {' ' + post.comments.length} </i>
+            {auth.user._id === profile.user._id &&
+               <div className="post__icons--user">
+                  <i onClick={e => {
+                     getPost(profile._id, post._id)
+                     openEdit(true)
+                     e.stopPropagation()
+                  }} className="fas fa-pencil-ruler"></i>
+                  <i onClick={e => deletePost(profile._id, post._id)} className="fas fa-times"></i>
+               </div>
+            }
          </div>
       </div>
    )

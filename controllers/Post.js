@@ -32,6 +32,23 @@ module.exports = {
       }
    },
 
+   update: async (req, res) => {
+      const errors = validationResult(req)
+      if (!errors.isEmpty()) {
+         return res.status(400).json(errors)
+      }
+      try {
+         const post = await Post.findById(req.params.id)
+         if(post.user.toString() === req.user.id) {
+            post.text = req.body.text
+            await post.save()
+         }
+         res.json(post)
+      } catch (err) {
+         res.status(500).send('Server error')
+      }
+   },
+
    // params: id
    findById: async (req, res) => {
       try {
