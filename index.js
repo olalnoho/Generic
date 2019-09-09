@@ -14,4 +14,4 @@ app.use('/api/auth', require('./routes/auth'))
 app.use('/api/profile', require('./routes/profile'))
 app.use('/api/post', require('./routes/post'))
 
-http.listen(5000, () => console.log('Server started on port 5000'))
+http.listen(process.env.PORT || 5000, () => console.log('Server started on port 5000'))
