@@ -780,6 +780,8 @@ input:not(:focus) ~ .searchbar__dropdown {
 }
 
 .searchbar__dropdown {
+  border-top-right-radius: 0.5rem;
+  border-top-left-radius: 0.5rem;
   -webkit-transition: all 0.4s;
   transition: all 0.4s;
   opacity: 1;

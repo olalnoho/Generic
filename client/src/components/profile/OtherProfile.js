@@ -39,7 +39,7 @@ const Profile = ({
                      <ProfileRight openModal={openModal} auth={auth} profile={profile} posts={profile.posts} />
                   </>
                </div>
-            </div> : <ProfileCreation />
+            </div> : <ProfileCreation otheruser/>
          }
       </>
 }

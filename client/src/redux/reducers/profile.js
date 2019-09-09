@@ -43,6 +43,7 @@ export default function (state = initialState, action) {
       case LOAD_PROFILE_FAIL:
          return {
             ...state,
+            profile: null,
             loading: false
          }
       case REMOVE_COMMENT_SUCCESS:

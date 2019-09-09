@@ -23,6 +23,8 @@
   }
 
   &__dropdown {
+    border-top-right-radius: 0.5rem;
+    border-top-left-radius: 0.5rem;
     transition: all 0.4s;
     opacity: 1;
     font-size: 1.5rem;

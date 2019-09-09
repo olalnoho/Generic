@@ -13,7 +13,7 @@ const Searchbar = ({ user, getUsers }) => {
          usr.name
             .toLowerCase()
             .includes(search.toLowerCase())
-      )
+      ).slice(0, 5)
    }
    return (
       <div className="searchbar">

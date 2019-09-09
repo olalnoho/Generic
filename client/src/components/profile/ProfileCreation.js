@@ -9,7 +9,7 @@ import { createProfile } from '../../redux/actions/profile'
    Hobbies: Array of strings,
    Avatar: String, 
 */
-const ProfileCreation = ({ createProfile }) => {
+const ProfileCreation = ({ createProfile, otheruser }) => {
 
    const [formData, setFormData] = useState({
       location: '',
@@ -23,6 +23,14 @@ const ProfileCreation = ({ createProfile }) => {
    const onSubmit = e => {
       e.preventDefault()
       createProfile(formData)
+   }
+
+   if (otheruser) {
+      return <div className="container">
+         <div className="profile__creation">
+            <h2 className="medium">Looks like this user doesn't have a profile yet. Sorry.</h2>
+         </div>
+      </div>
    }
    return (
       <div className="container">
