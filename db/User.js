@@ -47,7 +47,7 @@ userSchema.statics.login = async function (email, password) {
 }
 
 userSchema.methods.getAuthToken = async function () {
-   const token = await jwt.sign({ id: this._id }, 'secret', { expiresIn: 360000 })
+   const token = await jwt.sign({ id: this._id }, process.env.jwt_secret, { expiresIn: 360000 })
    return token
 }
 

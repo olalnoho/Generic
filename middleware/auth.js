@@ -4,7 +4,7 @@ const User = require('../db/User')
 module.exports = async function auth(req, res, next) {
    try {
       const token = req.header('x-auth-token')
-      const decoded = jwt.verify(token, 'secret')
+      const decoded = jwt.verify(token, process.env.jwt_secret)
       const user = await User.findById(decoded.id).select('-password')
       if (!user) throw Error()
       req.token = token
