@@ -52,7 +52,7 @@ const PostItem = ({
                      getPost(profile._id, post._id)
                      openEdit(true)
                      e.stopPropagation()
-                  }} className="fas fa-pencil-ruler"></i>
+                  }} className="fas fa-pencil-alt"></i>
                   <i onClick={e => deletePost(profile._id, post._id)} className="fas fa-times"></i>
                </div>
             }

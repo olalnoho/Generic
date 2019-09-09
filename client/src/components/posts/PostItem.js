@@ -54,7 +54,7 @@ const PostItem = ({
                         getPost(id)
                         setEdit(true)
                         e.stopPropagation()
-                     }} className="fas fa-pencil-ruler"></i>
+                     }} className="fas fa-pencil-alt"></i>
                      <i onClick={e => removePost(id)} className="fas fa-times"></i>
                   </div>
                }

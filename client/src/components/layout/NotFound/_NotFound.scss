@@ -1,0 +1,16 @@
+.nf {
+  margin-top: 10rem;
+  flex: 1;
+  background-color: #2f3e37;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
+  overflow: hidden;
+
+  i {
+     font-size: 5rem;
+     color: red; 
+  }
+}

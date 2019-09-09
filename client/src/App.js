@@ -6,6 +6,7 @@ import { Provider } from 'react-redux'
 import Navbar from './components/layout/Navbar/Navbar'
 import Posts from './components/posts/Posts'
 import Landing from './components/layout/Landing/Landing'
+import NotFound from './components/layout/NotFound/NotFound'
 import Register from './components/auth/Register/Register';
 import Login from './components/auth/Login/Login';
 import Profile from './components/profile/Profile';
@@ -33,8 +34,8 @@ const App = () => {
       <>
          <Provider store={store}>
             <Navbar />
-            <Route path="/" exact component={Landing} />
             <Switch>
+               <Route path="/" exact component={Landing} />
                <Route path="/register" component={Register} />
                <Route path="/login" component={Login} />
                <PrivateRoute path="/profile" exact component={Profile} />
@@ -42,6 +43,7 @@ const App = () => {
                <PrivateRoute path="/profile/:id" exact component={OtherProfile} />
                <PrivateRoute path="/posts" exact component={Posts} />
                <PrivateRoute path="/chat" exact component={Chat} />
+               <Route component={NotFound} />
             </Switch>
          </Provider>
       </>
