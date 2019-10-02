@@ -612,17 +612,22 @@
   width: 80%;
 }
 
-.modal .profile__comment, .modal .post__comment {
+.modal .profile__comment,
+.modal .post__comment {
   border-radius: 1rem;
   background-color: #2f3e37;
   color: white;
-  -ms-grid-rows: 1fr;
-      grid-template-rows: 1fr;
+  -ms-grid-rows: 3fr min-content;
+      grid-template-rows: 3fr -webkit-min-content;
+      grid-template-rows: 3fr min-content;
   -ms-grid-columns: 1fr 3fr;
       grid-template-columns: 1fr 3fr;
 }
 
-.modal .profile__comment i, .modal .post__comment i {
+.modal .profile__comment i,
+.modal .post__comment i {
+  margin-left: auto;
+  margin-right: 0.2rem;
   -ms-grid-row: 2;
   -ms-grid-row-span: 1;
   grid-row: 2/3;
@@ -665,20 +670,30 @@
         -ms-flex-direction: column;
             flex-direction: column;
   }
-  .modal .profile__comments, .modal .post__comments {
+  .modal .profile__comments,
+  .modal .post__comments {
     width: 100%;
   }
-  .modal .profile__comments .profile__comment, .modal .profile__comments .post__comment, .modal .post__comments .profile__comment, .modal .post__comments .post__comment {
+  .modal .profile__comments .profile__comment,
+  .modal .profile__comments .post__comment,
+  .modal .post__comments .profile__comment,
+  .modal .post__comments .post__comment {
     width: 90%;
     display: -ms-grid;
     display: grid;
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
   }
-  .modal .profile__comments .profile__comment img, .modal .profile__comments .post__comment img, .modal .post__comments .profile__comment img, .modal .post__comments .post__comment img {
+  .modal .profile__comments .profile__comment img,
+  .modal .profile__comments .post__comment img,
+  .modal .post__comments .profile__comment img,
+  .modal .post__comments .post__comment img {
     width: 10rem;
   }
-  .modal .profile__comments .profile__comment div, .modal .profile__comments .post__comment div, .modal .post__comments .profile__comment div, .modal .post__comments .post__comment div {
+  .modal .profile__comments .profile__comment div,
+  .modal .profile__comments .post__comment div,
+  .modal .post__comments .profile__comment div,
+  .modal .post__comments .post__comment div {
     margin-bottom: 2rem;
     -ms-grid-row: 1;
     -ms-grid-row-span: 1;
@@ -687,7 +702,10 @@
     -ms-grid-column-span: 1;
     grid-column: 1/2;
   }
-  .modal .profile__comments .profile__comment p, .modal .profile__comments .post__comment p, .modal .post__comments .profile__comment p, .modal .post__comments .post__comment p {
+  .modal .profile__comments .profile__comment p,
+  .modal .profile__comments .post__comment p,
+  .modal .post__comments .profile__comment p,
+  .modal .post__comments .post__comment p {
     margin: 0;
     text-align: center;
     -ms-grid-column: 1;
@@ -697,7 +715,10 @@
     -ms-grid-row-span: 1;
     grid-row: 2/3;
   }
-  .modal .profile__comments .profile__comment i, .modal .profile__comments .post__comment i, .modal .post__comments .profile__comment i, .modal .post__comments .post__comment i {
+  .modal .profile__comments .profile__comment i,
+  .modal .profile__comments .post__comment i,
+  .modal .post__comments .profile__comment i,
+  .modal .post__comments .post__comment i {
     -ms-grid-row: 3;
     -ms-grid-row-span: 1;
     grid-row: 3/4;
