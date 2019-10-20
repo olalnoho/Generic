@@ -4,9 +4,10 @@ import { Link } from 'react-router-dom'
 import Spinner from '../layout/Spinner/Spinner'
 import { postComment, removeComment } from '../../redux/actions/profile'
 
-const PostComments = ({ profile: { profile, post, loading }, postComment, removeComment, user }) => {
+const PostComments = ({ profile: { profile, post, loading, postLoading }, postComment, removeComment, user }) => {
    const [comment, setComment] = useState('')
-   return loading || profile == null ? <Spinner /> : <>
+
+   return loading || profile == null || postLoading ? <Spinner /> : <>
          <div key={post._id} className="post__item">
          <div className="profile__comment--user">
             <img className="rounded-img" src={post.avatar} alt="avatar" />

@@ -15,15 +15,25 @@ const Profile = ({
    match,
 }) => {
    const [commentsOpen, setCommentsOpen] = useState(false)
-
+   const [initLoad, setInitLoad] = useState(true)
+   
    const openModal = () => {
       setCommentsOpen(true)
    }
 
    useEffect(() => {
-      !auth.loading && getProfileById(match.params.id)
+      if(!auth.loading) {
+         getProfileById(match.params.id)
+         setInitLoad(false)
+      }
    }, [getProfileById, auth.loading, match.params.id])
-
+   if(loading || initLoad) {
+      return <div className="container">
+         <div className="profile">
+            <Spinner />
+         </div>
+      </div>
+   }
    return loading && profile === null ? <Spinner /> :
       <>
          {profile ?
@@ -36,10 +46,10 @@ const Profile = ({
                   </Modal>}
                   <>
                      <ProfileLeft user={auth.user._id} profile={profile} />
-                     <ProfileRight openModal={openModal} auth={auth} profile={profile} posts={profile.posts} />
+                     <ProfileRight guest={true} openModal={openModal} auth={auth} profile={profile} posts={profile.posts} />
                   </>
                </div>
-            </div> : <ProfileCreation otheruser/>
+            </div> : <ProfileCreation otheruser />
          }
       </>
 }

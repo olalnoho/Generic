@@ -15,6 +15,7 @@ const defaultheaders = {
 
 export const getPosts = () =>
    async dispatch => {
+      dispatch({type: SET_LOADING})
       try {
          const res = await axios.get('/api/post')
          dispatch({ type: GET_POSTS_SUCCESS, payload: res.data })

@@ -10,7 +10,8 @@ import {
    COMMENT_POST_SUCCESS,
    COMMENT_POST_FAIL,
    REMOVE_COMMENT_FAIL,
-   REMOVE_COMMENT_SUCCESS
+   REMOVE_COMMENT_SUCCESS,
+   SET_PROFILE_LOADING
 } from '../types'
 
 const defaultheaders = {
@@ -19,6 +20,7 @@ const defaultheaders = {
 
 export const getProfile = () =>
    async dispatch => {
+      dispatch({ type: SET_PROFILE_LOADING })
       try {
          const res = await axios.get('/api/profile')
          dispatch({ type: LOAD_PROFILE_SUCCESS, payload: res.data })
@@ -29,7 +31,7 @@ export const getProfile = () =>
 
 export const getProfileById = (id) =>
    async dispatch => {
-      dispatch({ type: SET_LOADING })
+      dispatch({ type: SET_PROFILE_LOADING })
       try {
          const res = await axios.get('/api/profile/' + id)
          dispatch({ type: LOAD_PROFILE_SUCCESS, payload: res.data })

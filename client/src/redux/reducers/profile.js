@@ -10,7 +10,8 @@ import {
    COMMENT_POST_SUCCESS,
    REMOVE_COMMENT_FAIL,
    REMOVE_COMMENT_SUCCESS,
-   CLEAR_PROFILE
+   CLEAR_PROFILE,
+   SET_PROFILE_LOADING
 } from '../types'
 
 const initialState = {
@@ -19,16 +20,23 @@ const initialState = {
    profiles: [],
    post: null,
    loading: true,
+   postLoading: true
 }
 
 export default function (state = initialState, action) {
    const { type, payload } = action
    switch (type) {
-      case SET_LOADING:
+      case SET_PROFILE_LOADING:
          return {
             ...state,
             loading: true
          }
+
+      case SET_LOADING:
+            return {
+               ...state,
+               postLoading: true
+            }
       case LOAD_PROFILE_SUCCESS:
          return {
             ...state,
@@ -36,7 +44,7 @@ export default function (state = initialState, action) {
             posts: payload.posts,
             loading: false
          }
-         
+
       case REMOVE_COMMENT_FAIL:
       case COMMENT_POST_FAIL:
       case POST_PROFILE_FAIL:
@@ -53,6 +61,7 @@ export default function (state = initialState, action) {
             ...state,
             post: payload,
             loading: false,
+            postLoading: false
          }
 
       case LOAD_POST_FAIL:
@@ -60,6 +69,7 @@ export default function (state = initialState, action) {
             ...state,
             post: null,
             loading: false,
+            postLoading: false
          }
 
       case POST_PROFILE_SUCCESS:

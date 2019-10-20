@@ -17,12 +17,23 @@ const Profile = ({
 }) => {
    const [commentsOpen, setCommentsOpen] = useState(false)
    const [isEdit, setIsEdit] = useState(false)
+   const [initLoad, setInitLoad] = useState(true)
    useEffect(() => {
       getProfile()
+      setInitLoad(false)
    }, [getProfile, post])
    const openModal = () => {
       setCommentsOpen(true)
    }
+
+   if(initLoad || loading) {
+      return <div className="container">
+         <div className="profile">
+            <Spinner />
+         </div>
+      </div>
+   }
+
    return loading && profile === null ? <Spinner /> :
       <>
          {profile && auth.user ?
