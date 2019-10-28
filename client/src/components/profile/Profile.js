@@ -21,7 +21,7 @@ const Profile = ({
    useEffect(() => {
       getProfile()
       setInitLoad(false)
-   }, [getProfile, post])
+   }, [getProfile])
    const openModal = () => {
       setCommentsOpen(true)
    }
