@@ -19,7 +19,6 @@ module.exports = (io) => function (socket) {
    })
 
    socket.on('send-message', function (msg) {
-      console.log(socket.name)
       io.emit('get-message', { name: socket.name, msg });
    });
 
@@ -32,8 +31,6 @@ module.exports = (io) => function (socket) {
    })
 
    socket.on('open-chat', obj => {
-      // Seems very hacky, try to fix.
-      // Also first message doens't show up sometimes. :/
       socket.to(ids[obj.email]).emit('chat-open')
    })
 

@@ -387,6 +387,18 @@
   }
 }
 
+@media only screen and (max-width: 400px) {
+  .profile__hobbies {
+    margin-bottom: 1rem;
+  }
+  .profile__hobbies h2 {
+    margin-bottom: 1rem;
+  }
+  .profile__hobbies__items li {
+    padding: 0 !important;
+  }
+}
+
 .Loader {
   font-size: 10px;
   margin: 50px auto;
@@ -603,7 +615,8 @@
           transform: translate(-50%, -50%);
   z-index: 1;
   width: 60%;
-  height: 70%;
+  max-height: 70%;
+  overflow: auto;
   background-color: rgba(44, 52, 57, 0.97);
   overflow: auto;
 }
